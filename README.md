@@ -3,6 +3,7 @@ Scanbook - To search with isbn and retrieve books from google API call
 
 
 FRONT-END ->
+
 LIBRARIES - BOOSTRAP,AJAX( To provide asynchronous calls and web responsive page)
 LANGUAGES - PHP/HTML/JAVASCRIPT
 DATABASE- MYSQL (note - mysql dump files are located in back-end folder)
@@ -23,6 +24,7 @@ The web page makes asynchronous calls to a back-end server (that you create) to 
 
 
 BACK-END ->
+
 LANGUAGES - JAVA
 FRAMEWORK/API - SPRING REST API
 DATABASE - MYSQL
