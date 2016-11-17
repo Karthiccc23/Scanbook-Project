@@ -1,0 +1,66 @@
+#box-wrapper{
+	background-image: url('book.jpg') ;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	min-height: 100%
+}
+
+#box-wrapper h3{
+	text-align: center;
+	color:white;
+	border:10px;
+	border-radius: 10px;
+	padding: 10px;
+	font-family: 'Baloo Chettan',cursive;
+	font-weight: bold;
+	background:#3073AA;
+
+}
+#sub{
+	color:#333;
+	border-radius: 10px;
+	padding: 10px;
+	font-family: 'Baloo Chettan',cursive;
+	font-weight: bold;
+	background: #eee;
+
+}
+
+#form{
+	padding: 20px;
+}
+#isbn{
+	font-family: 'Baloo Chettan',cursive;
+
+}
+
+#notes{
+	height: 150px;
+	text-align: left;
+}
+.warning
+{
+	color: #9F6000;
+	background-color: #FEEFB3;
+	background-image: url('warning.jpg');
+	border: 1px solid;
+	display: none;
+	margin: 10px 0px;
+	padding:15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+
+}
+#isbnbar
+{
+	text-align:center;
+}
+#searchbookdetails{
+	display: none;
+}
+
+
+
+
+
