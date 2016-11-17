@@ -7,6 +7,7 @@ FRONT-END ->
 LIBRARIES - BOOSTRAP,AJAX( To provide asynchronous calls and web responsive page)
 LANGUAGES - PHP/HTML/JAVASCRIPT
 DATABASE- MYSQL (note - mysql dump files are located in back-end folder)
+(Created 5 tables if needed, application can be expanded if there is case when there is more number of user types like Admin,guest etc,..Currently Implemented 2 tables now.)
 
 Validation of ISBN with error message (numeric, 13 digits long, starting with 9 and weighted sum checksum) 
 
