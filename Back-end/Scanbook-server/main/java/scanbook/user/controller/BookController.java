@@ -42,9 +42,11 @@ public class BookController {
 
 	@RequestMapping(value = "/books", method = RequestMethod.POST, headers =  {"content-type=application/x-www-form-urlencoded"})  
 	public String addbooks(@RequestParam String Isbn,String Title,String author , String publisher , String description,String noofpages,String notes,String isread) {
-		String result=bookimp.addbook(Isbn, Title,author,publisher,description,noofpages,notes,isread);
+		
+		bookimp.addbook(Isbn, Title,author,publisher,description,noofpages,notes,isread);
+		String result="success";
 
-		return "success";  
+		return result;  
 
 	} 
 	
@@ -54,9 +56,12 @@ public class BookController {
 	public String addnotes(@RequestParam String Isbn,String notes,String isread) {
 
 
-		String result=bookimp.updatenotes(Isbn,notes,isread);
+		bookimp.updatenotes(Isbn,notes,isread);
 
-		return "success";  
+		String result="success";
+
+		return result;  
+	 
 
 	}  
 	
@@ -66,9 +71,11 @@ public class BookController {
 	public String deletebook(@PathVariable("isbn") String Isbn) {
 
 
-		String result=bookimp.deletebook(Isbn);
+		bookimp.deletebook(Isbn);
+		String result="Book deleted";
 
-		return "Book deleted";  
+		return result;  
+
 
 	}  
 
