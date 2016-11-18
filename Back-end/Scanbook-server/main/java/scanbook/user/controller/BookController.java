@@ -17,15 +17,15 @@ import scanbook.user.databaseservice.BookDetailsImpl;
 public class BookController {  
 	@Autowired
 	BookDetailsImpl bookimp;
-	
+
 	//GET METHOD TO GET LIST OF BOOKS THAT MATCHES ISBN
-	
+
 	@RequestMapping(value = "/books/{isbn}", method = RequestMethod.GET,headers="Accept=application/json")  
 	public List<Book_details> getbook(@PathVariable String isbn)  
 	{  	
 
 		List<Book_details> book_details=bookimp.getbook(isbn);
-	
+
 		if((book_details.get(0)).getisRead()=="" ||(book_details.get(0)).getisRead()==null)
 		{
 			return null;
@@ -37,45 +37,68 @@ public class BookController {
 
 		}
 	}  
-	
+
 	//POST METHOD TO SAVE BOOKS IN MYSQL DATABASE
 
 	@RequestMapping(value = "/books", method = RequestMethod.POST, headers =  {"content-type=application/x-www-form-urlencoded"})  
 	public String addbooks(@RequestParam String Isbn,String Title,String author , String publisher , String description,String noofpages,String notes,String isread) {
-		
-		bookimp.addbook(Isbn, Title,author,publisher,description,noofpages,notes,isread);
-		String result="success";
 
-		return result;  
+		Boolean validate=bookimp.Servervalidation(Isbn);
+		if(validate==false)
+		{
+			return "failed";
+
+
+		}
+		else
+		{			
+			bookimp.addbook(Isbn, Title,author,publisher,description,noofpages,notes,isread);
+
+			return "success"; 
+		}
+
+
+
 
 	} 
-	
+
 	//EACH USER CAN ADD THEIR NOTES FOR THEIR BOOK - POST METHOD
 
 	@RequestMapping(value = "/addnotes", method = RequestMethod.POST, headers =  {"content-type=application/x-www-form-urlencoded"})  
 	public String addnotes(@RequestParam String Isbn,String notes,String isread) {
 
 
-		bookimp.updatenotes(Isbn,notes,isread);
+		Boolean validate=bookimp.Servervalidation(Isbn);
+		if(validate==false)
+		{
+			return "failed";
 
-		String result="success";
 
-		return result;  
-	 
+		}
+		else
+		{
+			bookimp.updatenotes(Isbn,notes,isread);
 
+			return "success"; 
+		}
 	}  
-	
+
 	//DELETE BOOK BY GIVING INPUT AS BARCODE - DELETE METHOD
 
 	@RequestMapping(value = "/books/{isbn}", method = RequestMethod.DELETE)  
 	public String deletebook(@PathVariable("isbn") String Isbn) {
 
+		Boolean validate=bookimp.Servervalidation(Isbn);
 
-		bookimp.deletebook(Isbn);
-		String result="Book deleted";
-
-		return result;  
-
+		if(validate==false)
+		{
+			return "failed";
+		}
+		else
+		{
+			String result=bookimp.deletebook(Isbn);
+			return "success"; 
+		}  
 
 	}  
 
