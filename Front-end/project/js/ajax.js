@@ -39,6 +39,8 @@ $(document).ready(function(){
                      document.getElementById('Title').innerHTML ="";
                      document.getElementById('author').innerHTML =""
                      document.getElementById('noofpages').innerHTML ="" ;
+                     document.getElementById('notes').innerHTML ="Enter notes here" ;
+
 
                      document.getElementById('publisher').innerHTML ="" ;
 
