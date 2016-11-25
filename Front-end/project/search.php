@@ -52,7 +52,7 @@ function GooglebooksAPI($isbn)
 	require_once 'google-api-php-client-2.1.0_PHP54/vendor/autoload.php';
 
 	$client = new Google_Client();
-	$client->setApplicationName("Google Books with PHP Tutorial Application");
+	$client->setApplicationName("Google Books");
 	$client->setDeveloperKey( $API_KEY );
 
 	$service = new Google_Service_Books($client);
